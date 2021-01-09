@@ -6,7 +6,7 @@ The cashflow binary reads stdin and expects the following pattern to use as prog
 
 ```
 # <- lines beginning with # are ignored
-# date format is d/m/y
+# date format is (d,m,y)
 START DATE
 CHANGE 0
 CHANGE 1
@@ -37,3 +37,12 @@ There are three types of Queries which may be used with this application:
 1. **When <Amount>** (App will show the date at which the specified amount is available)
 2. **Available <Days>** (App will show the amount available in the specified number of days)
 3. **Total <Days>**  (App will show the total amount (e.g. ignoring deposits) available in the specified number of days)
+
+## cashflow.sh
+This is a convenience script, which allows the use of with a separate file of changes, independent of the query, which is supplied as an argument.
+The script uses the current date as the start date of the calculation per default.
+
+```
+./cashflow.sh FILE QUERY
+# (e.g.)
+./cashflow changes.txt "Available 90"
